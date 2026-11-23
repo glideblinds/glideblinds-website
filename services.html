@@ -1,0 +1,1432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - GlideBlinds.ca | Custom Blinds & Shades</title>
+    <meta name="description" content="Explore our comprehensive range of custom blinds and shades services. From zebra blinds to motorized solutions, we offer premium window coverings assembled in Canada.">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+                 /* Header */
+         header {
+             background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+             color: white;
+             padding: 1rem 0;
+             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+         }
+         
+         .header-content {
+             display: flex;
+             justify-content: space-between;
+             align-items: center;
+         }
+         
+         .logo {
+             display: flex;
+             align-items: center;
+             text-decoration: none;
+         }
+         
+         .logo img {
+             height: 50px;
+             width: auto;
+             margin-right: 10px;
+         }
+         
+         .logo-text {
+             font-size: 2rem;
+             font-weight: bold;
+             color: white;
+         }
+         
+         nav ul {
+             list-style: none;
+             display: flex;
+             gap: 2rem;
+         }
+         
+         nav a {
+             color: white;
+             text-decoration: none;
+             font-weight: 500;
+             transition: color 0.3s ease;
+         }
+         
+         nav a:hover, nav a.active {
+             color: #fbbf24;
+         }
+         
+         .contact-info {
+             text-align: right;
+         }
+         
+                 .contact-info p {
+            margin: 0.25rem 0;
+            font-size: 0.9rem;
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+        
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 280px;
+            height: 100vh;
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            z-index: 1000;
+            transition: right 0.3s ease;
+            padding: 2rem 1rem;
+            box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+        }
+        
+        .mobile-menu.active {
+            right: 0;
+        }
+        
+        .mobile-menu-close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+        }
+        
+        .mobile-menu nav {
+            margin-top: 3rem;
+        }
+        
+        .mobile-menu nav ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .mobile-menu nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            transition: color 0.3s ease;
+        }
+        
+        .mobile-menu nav a:hover, 
+        .mobile-menu nav a.active {
+            color: #fbbf24;
+        }
+        
+        .mobile-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 999;
+        }
+        
+        .mobile-overlay.active {
+            display: block;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #ecf0f1 0%, #bdc3c7 100%);
+            padding: 4rem 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: #64748b;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+                 /* Services Grid */
+         .services-grid {
+             display: grid;
+             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+             gap: 2rem;
+             padding: 4rem 0;
+         }
+         
+         .service-card {
+             background: white;
+             padding: 2rem;
+             border-radius: 12px;
+             text-align: center;
+             border: 1px solid #e2e8f0;
+             transition: transform 0.3s ease, box-shadow 0.3s ease;
+             box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+             position: relative;
+             overflow: hidden;
+             display: flex;
+             flex-direction: column;
+             height: 100%;
+         }
+         
+         .service-card::before {
+             content: '';
+             position: absolute;
+             top: 0;
+             left: 0;
+             right: 0;
+             height: 4px;
+             background: linear-gradient(90deg, #f59e0b, #3b82f6, #10b981);
+         }
+         
+         .service-card:hover {
+             transform: translateY(-5px);
+             box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+         }
+         
+         .service-card h3 {
+             color: #1e40af;
+             margin-bottom: 1rem;
+             font-size: 1.6rem;
+             font-weight: 700;
+         }
+         
+         .service-card p {
+             color: #64748b;
+             margin-bottom: 1.5rem;
+             line-height: 1.6;
+             font-size: 0.95rem;
+         }
+         
+         .service-features {
+             list-style: none;
+             margin: 1.5rem 0;
+             text-align: left;
+         }
+         
+         .service-features li {
+             padding: 0.4rem 0;
+             color: #374151;
+             border-bottom: 1px solid #f1f5f9;
+             font-size: 0.9rem;
+         }
+         
+         .service-features li:before {
+             content: "✓";
+             color: #10b981;
+             font-weight: bold;
+             margin-right: 0.5rem;
+         }
+         
+         .service-link {
+             background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+             color: white;
+             text-decoration: none;
+             font-weight: 600;
+             display: inline-flex;
+             align-items: center;
+             gap: 0.5rem;
+             transition: all 0.3s ease;
+             margin-top: auto;
+             padding: 0.8rem 1.5rem;
+             border-radius: 8px;
+             font-size: 0.9rem;
+         }
+         
+         .service-link:hover {
+             background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+             transform: translateY(-2px);
+             box-shadow: 0 8px 20px rgba(245, 158, 11, 0.3);
+         }
+        
+        /* Quote Form Section */
+        .quote-section {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            padding: 4rem 0;
+            position: relative;
+        }
+        
+        .quote-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="%23ffffff" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+        }
+        
+        .quote-container {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .form-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 25px 80px rgba(0,0,0,0.08);
+            border: 1px solid #e2e8f0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .form-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #f59e0b, #3b82f6, #10b981, #f59e0b);
+            background-size: 200% 100%;
+            animation: gradient-shift 3s ease-in-out infinite;
+        }
+        
+        @keyframes gradient-shift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        .form-card h3 {
+            color: #1e40af;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            text-align: center;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .form-group {
+            margin-bottom: 0.7rem;
+            position: relative;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.3rem;
+            font-weight: 700;
+            color: #1f2937;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2px;
+            position: relative;
+        }
+        
+        .form-group label::after {
+            content: ' *';
+            color: #ef4444;
+            font-weight: 800;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.5rem 0.8rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+            background: #ffffff;
+            font-weight: 500;
+            box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #9ca3af;
+            font-style: italic;
+            font-size: 0.8rem;
+        }
+        
+        .form-group select {
+            cursor: pointer;
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+            background-position: right 0.8rem center;
+            background-repeat: no-repeat;
+            background-size: 1em 1em;
+            padding-right: 2rem;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #3b82f6;
+            background: #ffffff;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+            transform: translateY(-1px);
+        }
+        
+        .form-group input:hover,
+        .form-group select:hover,
+        .form-group textarea:hover {
+            border-color: #60a5fa;
+            transform: translateY(-1px);
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 800;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 1.5rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 6px 20px rgba(245, 158, 11, 0.3);
+        }
+        
+        .submit-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+        
+        .submit-btn:hover::before {
+            left: 100%;
+        }
+        
+        .submit-btn:hover {
+            background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(245, 158, 11, 0.5);
+        }
+        
+        .submit-btn:active {
+            transform: translateY(-2px);
+        }
+        
+                 /* Footer */
+         footer {
+             background: #1e293b;
+             color: white;
+             padding: 3rem 0 1rem;
+             text-align: center;
+         }
+         
+         .footer-content h3 {
+             color: #60a5fa;
+             margin-bottom: 1rem;
+         }
+         
+         .footer-content p {
+             margin-bottom: 0.5rem;
+             color: #cbd5e1;
+         }
+         
+         .footer-nav a {
+             color: #60a5fa;
+             text-decoration: none;
+             margin: 0 0.5rem;
+             transition: color 0.3s ease;
+         }
+         
+         .footer-nav a:hover {
+             color: #fbbf24;
+         }
+        
+                 /* Success Message */
+         .success-message {
+             background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+             color: white;
+             padding: 2rem;
+             border-radius: 18px;
+             margin-bottom: 2rem;
+             text-align: center;
+             display: none;
+             font-weight: 700;
+             box-shadow: 0 8px 30px rgba(16, 185, 129, 0.4);
+             font-size: 1.1rem;
+             text-transform: uppercase;
+             letter-spacing: 1px;
+             position: relative;
+             overflow: hidden;
+         }
+         
+         .success-message::before {
+             content: 'Check';
+             position: absolute;
+             left: 1rem;
+             top: 50%;
+             transform: translateY(-50%);
+             font-size: 1.5rem;
+         }
+         
+         .error-message {
+             background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+             color: white;
+             padding: 2rem;
+             border-radius: 18px;
+             margin-bottom: 2rem;
+             text-align: center;
+             display: none;
+             font-weight: 700;
+             box-shadow: 0 8px 30px rgba(239, 68, 68, 0.4);
+             font-size: 1.1rem;
+             text-transform: uppercase;
+             letter-spacing: 1px;
+             position: relative;
+             overflow: hidden;
+         }
+         
+         .error-message::before {
+             content: 'X';
+             position: absolute;
+             left: 1rem;
+             top: 50%;
+             transform: translateY(-50%);
+             font-size: 1.5rem;
+         }
+
+         /* New styles for quote form */
+                 .form-section-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: white;
+            margin: 1rem 0 1rem 0;
+            padding: 1rem 1.5rem;
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+        }
+         
+         .form-section-title::before {
+             content: 'Star';
+             position: absolute;
+             left: 1rem;
+             top: 50%;
+             transform: translateY(-50%);
+             font-size: 1.2rem;
+         }
+         
+         .form-section-title::after {
+             content: 'Star';
+             position: absolute;
+             right: 1rem;
+             top: 50%;
+             transform: translateY(-50%);
+             font-size: 1.2rem;
+         }
+         
+         .form-section-title:first-child {
+             margin-top: 0;
+         }
+         
+         .form-card h3 {
+             margin-bottom: 0.5rem;
+         }
+         
+         .form-card p {
+             margin-bottom: 1.5rem;
+         }
+
+         /* New styles for multi-window form */
+                 .window-section {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            padding: 1.5rem;
+            border: 3px solid #e2e8f0;
+            border-radius: 16px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            position: relative;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
+        }
+         
+         .window-section::before {
+             content: '';
+             position: absolute;
+             top: 0;
+             left: 0;
+             right: 0;
+             height: 3px;
+             background: linear-gradient(90deg, #3b82f6, #10b981, #f59e0b);
+         }
+
+         .window-section:hover {
+             border-color: #3b82f6;
+             box-shadow: 0 15px 40px rgba(59, 130, 246, 0.2);
+             transform: translateY(-5px);
+         }
+
+         .window-section .form-section-title {
+             border-left-color: #3b82f6;
+             background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+             color: white;
+             padding: 1.5rem 2rem;
+             border-radius: 15px;
+             margin-bottom: 2rem;
+             font-size: 1.3rem;
+             font-weight: 700;
+             text-align: center;
+             box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
+             text-transform: uppercase;
+             letter-spacing: 1px;
+             position: relative;
+         }
+         
+         .window-section .form-section-title::before {
+             content: 'Window';
+             position: absolute;
+             left: 1rem;
+             top: 50%;
+             transform: translateY(-50%);
+             font-size: 1.2rem;
+         }
+
+         .remove-window-btn {
+             background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+             color: white;
+             padding: 0.75rem 1.5rem;
+             border: none;
+             border-radius: 12px;
+             font-size: 1rem;
+             font-weight: 700;
+             cursor: pointer;
+             transition: all 0.3s ease;
+             margin-bottom: 1rem;
+             text-transform: uppercase;
+             letter-spacing: 0.5px;
+             box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
+         }
+
+         .remove-window-btn:hover {
+             background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+             transform: translateY(-3px);
+             box-shadow: 0 8px 25px rgba(239, 68, 68, 0.5);
+         }
+
+         .add-window-btn {
+             background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+             color: white;
+             padding: 1.5rem 3rem;
+             border: none;
+             border-radius: 18px;
+             font-size: 1.3rem;
+             font-weight: 700;
+             cursor: pointer;
+             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+             margin: 2rem 0;
+             text-transform: uppercase;
+             letter-spacing: 1.5px;
+             box-shadow: 0 8px 25px rgba(16, 185, 129, 0.3);
+             position: relative;
+             overflow: hidden;
+         }
+         
+         .add-window-btn::before {
+             content: '➕';
+             margin-right: 0.5rem;
+             font-size: 1.2rem;
+         }
+
+         .add-window-btn:hover {
+             background: linear-gradient(135deg, #059669 0%, #047857 100%);
+             transform: translateY(-5px);
+             box-shadow: 0 15px 35px rgba(16, 185, 129, 0.5);
+         }
+         
+         /* Attachment Modal Styles */
+         .attachment-modal {
+             position: fixed;
+             top: 0;
+             left: 0;
+             width: 100%;
+             height: 100%;
+             background: rgba(0, 0, 0, 0.7);
+             display: flex;
+             justify-content: center;
+             align-items: center;
+             z-index: 1000;
+         }
+         
+         .attachment-modal-content {
+             background: white;
+             border-radius: 12px;
+             max-width: 600px;
+             width: 90%;
+             max-height: 90vh;
+             overflow-y: auto;
+             padding: 2rem;
+             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+         }
+         
+         .close-button {
+             position: absolute;
+             top: 1rem;
+             right: 1rem;
+             font-size: 2rem;
+             cursor: pointer;
+             color: #666;
+         }
+         
+         .close-button:hover {
+             color: #333;
+         }
+         
+         .email-preview-container {
+             margin: 1.5rem 0;
+         }
+         
+         .email-preview {
+             background: #f8f9fa;
+             padding: 1rem;
+             border-radius: 8px;
+             border-left: 4px solid #e67e22;
+             white-space: pre-wrap;
+             font-family: monospace;
+             font-size: 0.9rem;
+             max-height: 200px;
+             overflow-y: auto;
+         }
+         
+         .btn {
+             background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+             color: white;
+             padding: 1rem 2rem;
+             border: none;
+             border-radius: 8px;
+             font-size: 1rem;
+             font-weight: 600;
+             cursor: pointer;
+             transition: background 0.3s ease;
+         }
+         
+         .btn:hover {
+             background: linear-gradient(135deg, #34495e 0%, #4a627a 100%);
+         }
+         
+                           /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+            
+            nav {
+                display: none;
+            }
+            
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
+            .contact-info {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+                padding: 2rem 0;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .service-card {
+                padding: 1.5rem;
+            }
+            
+            .attachment-modal-content {
+                width: 95%;
+                margin: 1rem;
+                padding: 1.5rem;
+            }
+            
+            .container {
+                padding: 0 15px;
+            }
+            
+            .form-card {
+                padding: 2rem;
+            }
+            
+            .window-section {
+                padding: 1.5rem;
+            }
+            
+            .add-window-btn {
+                width: 100%;
+                margin: 1rem 0;
+                padding: 1.2rem 2rem;
+                font-size: 1.1rem;
+            }
+            
+            .submit-btn {
+                padding: 1.5rem;
+                font-size: 1.2rem;
+            }
+            
+            .form-section-title {
+                font-size: 1.2rem;
+                padding: 1rem 1.5rem;
+            }
+            
+            .form-group input,
+            .form-group select,
+            .form-group textarea {
+                padding: 1rem 1.2rem;
+                font-size: 1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero p {
+                font-size: 0.9rem;
+            }
+            
+            .service-card h3 {
+                font-size: 1.5rem;
+            }
+            
+            .form-section-title {
+                font-size: 1.1rem;
+                padding: 0.8rem 1.2rem;
+            }
+            
+            .form-group input,
+            .form-group select,
+            .form-group textarea {
+                padding: 0.8rem 1rem;
+                font-size: 0.9rem;
+            }
+            
+            .logo-text {
+                font-size: 1.5rem;
+            }
+            
+            .logo img {
+                height: 40px;
+            }
+            
+            .form-card {
+                padding: 1.5rem;
+            }
+            
+            .window-section {
+                padding: 1rem;
+            }
+            
+            .submit-btn {
+                padding: 1.2rem;
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <img src="Glideblinds.png" alt="GlideBlinds Logo">
+                    <span class="logo-text">GlideBlinds</span>
+                </a>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html" class="active">Services</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+                <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                    &#9776;
+                </button>
+                <div class="contact-info">
+                    <p>Email: glideblinds@gmail.com</p>
+                    <p>Location: Serving Ottawa & Surrounding Areas</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+         <!-- Hero Section -->
+     <section class="hero">
+         <div class="container">
+             <h1>Choose Your Consultation Method</h1>
+             <p>We offer three convenient ways to get started with your custom blinds project. Select the option that works best for your needs and schedule.</p>
+         </div>
+     </section>
+
+                   <!-- Services Grid -->
+      <div class="container">
+          <div class="services-grid">
+              <div class="service-card">
+                  <h3>📋 Request a Quote</h3>
+                  <p>Get a detailed quote for your custom blinds project. Fill out our comprehensive form with all your window specifications and requirements.</p>
+                  <ul class="service-features">
+                      <li>Detailed window specifications</li>
+                      <li>Blind type selection</li>
+                      <li>Custom measurements in meters</li>
+                      <li>Fabric and color preferences</li>
+                      <li>Excel file download</li>
+                      <li>Direct email integration</li>
+                  </ul>
+                  <a href="#quote-form" class="service-link">Fill Quote Form →</a>
+              </div>
+              
+              <div class="service-card">
+                                      <h3>15-Minute Call</h3>
+                  <p>Schedule a quick consultation call to discuss your project, get basic estimates, and ask any questions about our services.</p>
+                  <ul class="service-features">
+                      <li>15-minute consultation</li>
+                      <li>Basic quote estimate</li>
+                      <li>Phone consultation</li>
+                      <li>No travel required</li>
+                      <li>Quick project overview</li>
+                      <li>Flexible scheduling</li>
+                  </ul>
+                  <a href="https://calendly.com/glideblinds/30min" target="_blank" class="service-link">Schedule Call →</a>
+              </div>
+              
+              <div class="service-card">
+                                      <h3>In-Person Consultation</h3>
+                  <p>Our expert visits your home for detailed measurements, fabric selection, and comprehensive quote with timeline.</p>
+                  <ul class="service-features">
+                      <li>Free in-home visit</li>
+                      <li>Professional measurements</li>
+                      <li>Fabric samples & selection</li>
+                      <li>Detailed quote & timeline</li>
+                      <li>Design consultation</li>
+                      <li>Installation planning</li>
+                  </ul>
+                  <a href="https://calendly.com/glideblinds/meeting-quotation" target="_blank" class="service-link">Schedule Visit →</a>
+              </div>
+          </div>
+      </div>
+
+         <!-- Quote Form Section -->
+     <section class="quote-section" id="quote-form">
+         <div class="container">
+             <div class="quote-container">
+                 <div class="form-card">
+                     <h3>Request Your Free Quote</h3>
+                     <p style="color: #64748b; margin-bottom: 1.5rem; text-align: center;">Get a detailed quote for your custom blinds project</p>
+                     
+                     <div class="success-message" id="quote-success">
+                         Thank you! Your quote details have been downloaded. Please attach the Excel file to your email.
+                     </div>
+                     <div class="error-message" id="quote-error">
+                         Please fill in all required fields for all windows.
+                     </div>
+                     
+                     <form id="quoteForm">
+                         <!-- Personal Information -->
+                         <div class="form-section-title">Personal Information</div>
+                         <div class="form-row">
+                             <div class="form-group">
+                                 <label for="quote-name">Full Name *</label>
+                                 <input type="text" id="quote-name" name="name" required>
+                             </div>
+                             
+                             <div class="form-group">
+                                 <label for="quote-email">Email Address *</label>
+                                 <input type="email" id="quote-email" name="email" required>
+                             </div>
+                         </div>
+                         
+                         <div class="form-row">
+                             <div class="form-group">
+                                 <label for="quote-phone">Phone Number</label>
+                                 <input type="tel" id="quote-phone" name="phone">
+                             </div>
+                             
+                             <div class="form-group">
+                                 <label for="quote-address">Address</label>
+                                 <input type="text" id="quote-address" name="address" placeholder="City, Province">
+                             </div>
+                         </div>
+                         
+                         <!-- Dynamic Window Sections -->
+                         <div id="windows-container">
+                             <!-- Window sections will be added here by JavaScript -->
+                         </div>
+                         
+                         <button type="button" id="add-window-btn" class="add-window-btn">➕ Add Another Window</button>
+                         
+                         <div class="form-group">
+                             <label for="quote-message">Additional Details</label>
+                             <textarea id="quote-message" name="message" rows="4" placeholder="Tell us about your project, special requirements, existing decor, or any questions you have..."></textarea>
+                         </div>
+                         
+                         <button type="submit" class="submit-btn">📋 Get Detailed Quote</button>
+                     </form>
+                 </div>
+             </div>
+         </div>
+     </section>
+     
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <h3>GlideBlinds</h3>
+                <p>Premium window coverings assembled in Canada</p>
+                <p>Email: glideblinds@gmail.com</p>
+                <p>Location: Serving Ottawa & Surrounding Areas</p>
+                <div class="footer-nav">
+                    <a href="index.html">Home</a> |
+                    <a href="about.html">About</a> |
+                    <a href="services.html">Services</a> |
+                    <a href="blog.html">Blog</a> |
+                    <a href="contact.html">Contact</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 GlideBlinds. All rights reserved.</p>
+            </div>
+        </div>
+        </footer>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-overlay" onclick="closeMobileMenu()"></div>
+    <div class="mobile-menu">
+        <button class="mobile-menu-close" onclick="closeMobileMenu()">&times;</button>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html" class="active">Services</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+    
+    <script>
+        // Mobile Menu Functions
+        function toggleMobileMenu() {
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const mobileOverlay = document.querySelector('.mobile-overlay');
+            
+            mobileMenu.classList.toggle('active');
+            mobileOverlay.classList.toggle('active');
+        }
+        
+        function closeMobileMenu() {
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const mobileOverlay = document.querySelector('.mobile-overlay');
+            
+            mobileMenu.classList.remove('active');
+            mobileOverlay.classList.remove('active');
+        }
+
+    <script>
+         // JavaScript for dynamic window forms and Excel export
+         document.addEventListener('DOMContentLoaded', function() {
+             let windowCount = 0;
+             const windowsContainer = document.getElementById('windows-container');
+             const addWindowBtn = document.getElementById('add-window-btn');
+             const quoteForm = document.getElementById('quoteForm');
+             const quoteSuccess = document.getElementById('quote-success');
+             const quoteError = document.getElementById('quote-error');
+             const attachmentModal = document.getElementById('attachmentModal');
+             const downloadedFileNameSpan = document.getElementById('downloadedFileName');
+             const emailPreviewPre = document.getElementById('emailPreview');
+         
+             function showMessage(elementId, show) {
+                 const element = document.getElementById(elementId);
+                 if (element) {
+                     element.style.display = show ? 'block' : 'none';
+                 }
+             }
+         
+             function addWindowSection() {
+                 windowCount++;
+                 const windowDiv = document.createElement('div');
+                 windowDiv.classList.add('window-section');
+                 windowDiv.setAttribute('data-window-id', windowCount);
+                 windowDiv.innerHTML = `
+                     <div class="form-section-title">Window ${windowCount} Details</div>
+                     <button type="button" class="remove-window-btn" data-window-id="${windowCount}">Remove Window</button>
+                     <div class="form-row">
+                         <div class="form-group">
+                             <label for="window-${windowCount}-name">Window Name</label>
+                             <input type="text" id="window-${windowCount}-name" name="window-${windowCount}-name" placeholder="e.g., Living Room Window 1">
+                         </div>
+                         <div class="form-group">
+                             <label for="window-${windowCount}-blind-type">Blind Type *</label>
+                             <select id="window-${windowCount}-blind-type" name="window-${windowCount}-blindType" required>
+                                 <option value="">Select blind type</option>
+                                                         <option value="zebra">Zebra Blinds - Modern dual-layer design</option>
+                        <option value="roller">Roller Shades - Clean, minimal look</option>
+                                                         <option value="honeycomb">Honeycomb Blinds - Energy efficient</option>
+                        <option value="roman">Roman Blinds - Classic elegance</option>
+                                                         <option value="curtains">Curtains - Traditional style</option>
+                        <option value="faux-wood">Faux Wood Blinds - Natural appearance</option>
+                                                         <option value="vertical">Vertical Blinds - Large windows</option>
+                        <option value="cellular">Cellular Shades - Premium insulation</option>
+                                 <option value="other">Other - Custom solution</option>
+                             </select>
+                         </div>
+                     </div>
+                     <div class="form-row">
+                         <div class="form-group">
+                             <label for="window-${windowCount}-width">Width (m) *</label>
+                             <input type="number" id="window-${windowCount}-width" name="window-${windowCount}-width" step="0.001" min="0.1" max="10" placeholder="e.g., 1.234" required>
+                         </div>
+                         <div class="form-group">
+                             <label for="window-${windowCount}-height">Height (m) *</label>
+                             <input type="number" id="window-${windowCount}-height" name="window-${windowCount}-height" step="0.001" min="0.1" max="10" placeholder="e.g., 1.567" required>
+                         </div>
+                     </div>
+                     <div class="form-row">
+                         <div class="form-group">
+                             <label for="window-${windowCount}-cassette">Cassette Type</label>
+                             <select id="window-${windowCount}-cassette" name="window-${windowCount}-cassette">
+                                 <option value="">Select cassette type</option>
+                                 <option value="round">Round</option>
+                                 <option value="square">Square</option>
+                                 <option value="no-cassette">No Cassette</option>
+                             </select>
+                         </div>
+                         <div class="form-group">
+                             <label for="window-${windowCount}-operation">Operation Type</label>
+                             <select id="window-${windowCount}-operation" name="window-${windowCount}-operation">
+                                 <option value="">Select operation type</option>
+                                 <option value="manual">Manual</option>
+                                 <option value="ccl">CCL (Continuous Cord Loop)</option>
+                                 <option value="motorized">Motorized</option>
+                                 <option value="motorized-smart">Motorized with Google/Alexa</option>
+                             </select>
+                         </div>
+                     </div>
+                     <div class="form-row">
+                         <div class="form-group">
+                             <label for="window-${windowCount}-color">Preferred Color</label>
+                             <select id="window-${windowCount}-color" name="window-${windowCount}-color">
+                                 <option value="">Select color</option>
+                                 <option value="white">White</option>
+                                                         <option value="beige">Beige/Cream</option>
+                        <option value="gray">Gray</option>
+                        <option value="black">Black</option>
+                        <option value="brown">Brown</option>
+                                                         <option value="blue">Blue</option>
+                        <option value="green">Green</option>
+                                 <option value="custom">Custom color</option>
+                             </select>
+                         </div>
+                         <div class="form-group">
+                             <label for="window-${windowCount}-fabric">Fabric Preference</label>
+                             <select id="window-${windowCount}-fabric" name="window-${windowCount}-fabric">
+                                 <option value="">Select fabric</option>
+                                 <option value="light-filtering">Light filtering</option>
+                                                         <option value="room-darkening">Room darkening</option>
+                        <option value="blackout">Blackout</option>
+                                                         <option value="solar">Solar/sun protection</option>
+                        <option value="textured">Textured</option>
+                                 <option value="smooth">Smooth</option>
+                             </select>
+                         </div>
+                     </div>
+                 `;
+                 windowsContainer.appendChild(windowDiv);
+         
+                 // Add event listener for blind type change to update cassette options
+                 const blindTypeSelect = windowDiv.querySelector(`#window-${windowCount}-blind-type`);
+                 const cassetteSelect = windowDiv.querySelector(`#window-${windowCount}-cassette`);
+                 blindTypeSelect.addEventListener('change', function() {
+                     updateCassetteOptions(this.value, cassetteSelect);
+                 });
+         
+                 // Initial update for cassette options
+                 updateCassetteOptions(blindTypeSelect.value, cassetteSelect);
+             }
+         
+             function updateCassetteOptions(blindType, cassetteSelect) {
+                 const noCassetteOption = cassetteSelect.querySelector('option[value="no-cassette"]');
+                 if (blindType === 'zebra') {
+                     if (noCassetteOption) {
+                         noCassetteOption.style.display = 'none';
+                         if (cassetteSelect.value === 'no-cassette') {
+                             cassetteSelect.value = ''; // Reset if 'No Cassette' was selected
+                         }
+                     }
+                 } else {
+                     if (noCassetteOption) {
+                         noCassetteOption.style.display = 'block';
+                     }
+                 }
+             }
+         
+             function removeWindowSection(windowId) {
+                 const windowDiv = document.querySelector(`.window-section[data-window-id="${windowId}"]`);
+                 if (windowDiv) {
+                     windowsContainer.removeChild(windowDiv);
+                 }
+             }
+         
+             addWindowBtn.addEventListener('click', addWindowSection);
+         
+             windowsContainer.addEventListener('click', function(e) {
+                 if (e.target.classList.contains('remove-window-btn')) {
+                     const windowId = e.target.getAttribute('data-window-id');
+                     removeWindowSection(windowId);
+                 }
+             });
+         
+             // Add first window section on load
+             addWindowSection();
+         
+             quoteForm.addEventListener('submit', function(e) {
+                 e.preventDefault();
+                 
+                 const formData = new FormData(this);
+                 const customerData = {
+                     name: formData.get('name'),
+                     email: formData.get('email'),
+                     phone: formData.get('phone'),
+                     address: formData.get('address'),
+                     message: formData.get('message')
+                 };
+         
+                 const windowsData = [];
+                 let allWindowsValid = true;
+         
+                 document.querySelectorAll('.window-section').forEach((windowDiv, index) => {
+                     const windowId = windowDiv.getAttribute('data-window-id');
+                     const blindType = formData.get(`window-${windowId}-blindType`);
+                     const width = parseFloat(formData.get(`window-${windowId}-width`));
+                     const height = parseFloat(formData.get(`window-${windowId}-height`));
+         
+                     if (!blindType || isNaN(width) || isNaN(height) || width < 0.1 || width > 10 || height < 0.1 || height > 10) {
+                         allWindowsValid = false;
+                     }
+         
+                     windowsData.push({
+                         id: windowId,
+                         name: formData.get(`window-${windowId}-name`) || `Window ${index + 1}`,
+                         blindType: blindType,
+                         width: width.toFixed(3),
+                         height: height.toFixed(3),
+                         cassette: formData.get(`window-${windowId}-cassette`) || 'N/A',
+                         operation: formData.get(`window-${windowId}-operation`) || 'N/A',
+                         color: formData.get(`window-${windowId}-color`) || 'N/A',
+                         fabric: formData.get(`window-${windowId}-fabric`) || 'N/A'
+                     });
+                 });
+         
+                 if (!customerData.name || !customerData.email || !allWindowsValid || windowsData.length === 0) {
+                     showMessage('quote-error', true);
+                     showMessage('quote-success', false);
+                     return;
+                 }
+         
+                 // Generate CSV content
+                 const csvHeader = ["Window Name", "Blind Type", "Width (m)", "Height (m)", "Cassette Type", "Operation Type", "Preferred Color", "Fabric Preference"];
+                 const csvRows = windowsData.map(w => [
+                     w.name,
+                     w.blindType,
+                     w.width,
+                     w.height,
+                     w.cassette,
+                     w.operation,
+                     w.color,
+                     w.fabric
+                 ]);
+         
+                 let csvContent = csvHeader.join(",") + "\n" + csvRows.map(e => e.join(",")).join("\n");
+         
+                 // Create a Blob and download the CSV file
+                 const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+                 const fileName = `GlideBlinds_Quote_${customerData.name.replace(/\s/g, '_')}_${new Date().toISOString().slice(0,10)}.csv`;
+                 const link = document.createElement('a');
+                 if (link.download !== undefined) { // Feature detection for download attribute
+                     const url = URL.createObjectURL(blob);
+                     link.setAttribute('href', url);
+                     link.setAttribute('download', fileName);
+                     link.style.visibility = 'hidden';
+                     document.body.appendChild(link);
+                     link.click();
+                     document.body.removeChild(link);
+                 }
+         
+                 // Generate email body with ASCII table
+                 const tableHeaders = ["No.", "Window Name", "Blind Type", "Dimensions", "Cassette", "Operation", "Color", "Fabric"];
+                 const columnWidths = tableHeaders.map(h => h.length);
+         
+                 windowsData.forEach(window => {
+                     columnWidths[0] = Math.max(columnWidths[0], (windowsData.indexOf(window) + 1).toString().length);
+                     columnWidths[1] = Math.max(columnWidths[1], window.name.length);
+                     columnWidths[2] = Math.max(columnWidths[2], window.blindType.length);
+                     columnWidths[3] = Math.max(columnWidths[3], `${window.width}m x ${window.height}m`.length);
+                     columnWidths[4] = Math.max(columnWidths[4], window.cassette.length);
+                     columnWidths[5] = Math.max(columnWidths[5], window.operation.length);
+                     columnWidths[6] = Math.max(columnWidths[6], window.color.length);
+                     columnWidths[7] = Math.max(columnWidths[7], window.fabric.length);
+                 });
+         
+                 const pad = (text, width) => text.toString().padEnd(width, ' ');
+                 const createRow = (data, widths) => `│ ${data.map((d, i) => pad(d, widths[i])).join(' │ ')} │`;
+                 const createSeparator = (widths) => `├${widths.map(w => '─'.repeat(w + 2)).join('┼')}┤`;
+                 const createTopBorder = (widths) => `┌${widths.map(w => '─'.repeat(w + 2)).join('┬')}┐`;
+                 const createBottomBorder = (widths) => `└${widths.map(w => '─'.repeat(w + 2)).join('┴')}┘`;
+         
+                 let tableString = createTopBorder(columnWidths) + '\n';
+                 tableString += createRow(tableHeaders, columnWidths) + '\n';
+                 tableString += createSeparator(columnWidths) + '\n';
+         
+                 windowsData.forEach((window, index) => {
+                     const rowData = [
+                         index + 1,
+                         window.name,
+                         window.blindType,
+                         `${window.width}m x ${window.height}m`,
+                         window.cassette,
+                         window.operation,
+                         window.color,
+                         window.fabric
+                     ];
+                     tableString += createRow(rowData, columnWidths) + '\n';
+                 });
+                 tableString += createBottomBorder(columnWidths);
+         
+                 const totalArea = windowsData.reduce((sum, window) => sum + (parseFloat(window.width) * parseFloat(window.height)), 0).toFixed(3);
+         
+                 const emailBody = `Dear GlideBlinds Team,
+
+Please find below the detailed quote request from ${customerData.name}:
+
+CUSTOMER INFORMATION:
+- Name: ${customerData.name}
+- Email: ${customerData.email}
+- Phone: ${customerData.phone || 'Not provided'}
+- Address: ${customerData.address || 'Not provided'}
+
+PROJECT SUMMARY:
+- Total Windows: ${windowsData.length}
+- Total Area: ${totalArea} m²
+
+WINDOW SPECIFICATIONS:
+${tableString}
+
+ADDITIONAL DETAILS:
+${customerData.message || 'No additional details provided.'}
+
+Kindly refer to the attached Excel file for a structured overview of all specifications.
+
+Best regards,
+${customerData.name}`;
+         
+                 emailPreviewPre.textContent = emailBody; // Set preview text
+                 downloadedFileNameSpan.textContent = fileName; // Set file name in modal
+         
+                 showMessage('quote-success', true);
+                 showMessage('quote-error', false);
+                 attachmentModal.style.display = 'flex'; // Show the modal
+         
+                 // Automatically open email client after a short delay
+                 setTimeout(() => {
+                     const mailtoLink = `mailto:glideblinds@gmail.com?subject=${encodeURIComponent('GlideBlinds Quote Request - Detailed Specifications')}&body=${encodeURIComponent(emailBody)}`;
+                     window.location.href = mailtoLink;
+                 }, 2000); // 2 second delay
+         
+                 // Reset form (excluding customer info for convenience if they want to send another)
+                 document.querySelectorAll('.window-section').forEach(section => section.remove());
+                 windowCount = 0;
+                 addWindowSection(); // Add back one empty window section
+             });
+         
+             function closeAttachmentModal() {
+                 attachmentModal.style.display = 'none';
+                 showMessage('quote-success', false);
+             }
+             window.closeAttachmentModal = closeAttachmentModal; // Make it globally accessible
+         });
+     </script>
+</body>
+</html>

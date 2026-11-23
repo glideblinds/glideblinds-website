@@ -1,0 +1,35 @@
+# Simple .htaccess for IONOS hosting - Initial Setup
+# Use this version first, then upgrade to full version after SSL is working
+
+# Enable Rewrite Engine
+RewriteEngine On
+
+# Prevent directory browsing
+Options -Indexes
+
+# Set default file
+DirectoryIndex index.html
+
+# Basic security - prevent access to sensitive files
+<FilesMatch "\.(htaccess|htpasswd|ini|log|sh|inc|bak)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# Basic compression (if supported)
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE application/javascript
+</IfModule>
+
+# Basic caching
+<IfModule mod_expires.c>
+    ExpiresActive on
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType image/png "access plus 1 month"
+    ExpiresByType image/jpg "access plus 1 month"
+    ExpiresByType image/jpeg "access plus 1 month"
+</IfModule>
+</IfModule>

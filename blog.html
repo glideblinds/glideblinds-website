@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - GlideBlinds.ca | Expert Tips & Insights</title>
+    <meta name="description" content="Discover expert tips on choosing blinds, maintenance guides, and the latest trends in window coverings from GlideBlinds professionals.">
+    <meta name="keywords" content="blinds blog, window covering tips, blinds maintenance, interior design trends, Ottawa blinds">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="GlideBlinds Blog - Expert Tips & Insights">
+    <meta property="og:description" content="Expert advice on blinds, maintenance, and design trends from Ottawa's premier window covering specialists.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://glideblinds.ca/blog">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    
+    <!-- CSS -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+        
+        .logo img {
+            height: 50px;
+            width: auto;
+            margin-right: 10px;
+        }
+        
+        .logo-text {
+            font-size: 2rem;
+            font-weight: bold;
+            color: white;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        nav a:hover, nav a.active {
+            color: #fbbf24;
+        }
+        
+        .contact-info {
+            text-align: right;
+        }
+        
+        .contact-info p {
+            margin: 0.25rem 0;
+            font-size: 0.9rem;
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+        
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 280px;
+            height: 100vh;
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            z-index: 1000;
+            transition: right 0.3s ease;
+            padding: 2rem 1rem;
+            box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+        }
+        
+        .mobile-menu.active {
+            right: 0;
+        }
+        
+        .mobile-menu-close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+        }
+        
+        .mobile-menu nav {
+            margin-top: 3rem;
+        }
+        
+        .mobile-menu nav ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .mobile-menu nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            transition: color 0.3s ease;
+        }
+        
+        .mobile-menu nav a:hover, 
+        .mobile-menu nav a.active {
+            color: #fbbf24;
+        }
+        
+        .mobile-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 999;
+        }
+        
+        .mobile-overlay.active {
+            display: block;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            padding: 4rem 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #1e40af;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            color: #64748b;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Blog Section */
+        .blog-section {
+            padding: 4rem 0;
+            background: white;
+        }
+        
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .blog-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+        }
+        
+        .blog-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+        
+        .blog-content {
+            padding: 1.5rem;
+        }
+        
+        .blog-meta {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            color: #64748b;
+        }
+        
+        .blog-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+        
+        .blog-title {
+            color: #1e40af;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+        
+        .blog-excerpt {
+            color: #64748b;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .blog-excerpt.full {
+            display: none;
+        }
+        
+        .read-more-btn {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .read-more-btn:hover {
+            background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+            transform: translateY(-2px);
+        }
+        
+        .read-more-btn.read-less {
+            background: linear-gradient(135deg, #64748b 0%, #475569 100%);
+        }
+        
+        .read-more-btn.read-less:hover {
+            background: linear-gradient(135deg, #475569 0%, #334155 100%);
+        }
+        
+        /* Featured Blog */
+        .featured-blog {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+            color: white;
+            padding: 3rem;
+            border-radius: 20px;
+            margin-bottom: 4rem;
+            text-align: center;
+        }
+        
+        .featured-blog h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .featured-blog p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .featured-btn {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .featured-btn:hover {
+            background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+            transform: translateY(-2px);
+        }
+        
+
+        
+        /* Footer */
+        footer {
+            background: #1e293b;
+            color: white;
+            padding: 3rem 0 1rem;
+            text-align: center;
+        }
+        
+        .footer-content {
+            margin-bottom: 2rem;
+        }
+        
+        .footer-content h3 {
+            color: #60a5fa;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-content p {
+            margin-bottom: 0.5rem;
+            color: #cbd5e1;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid #334155;
+            padding-top: 1rem;
+            color: #94a3b8;
+        }
+        
+        .footer-nav {
+            margin-top: 1.5rem;
+        }
+        
+        .footer-nav a {
+            color: #60a5fa;
+            text-decoration: none;
+            margin: 0 0.5rem;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-nav a:hover {
+            color: #fbbf24;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+            
+            nav {
+                display: none;
+            }
+            
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
+            .contact-info {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .blog-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .featured-blog {
+                padding: 2rem 1rem;
+            }
+            
+            .featured-blog h2 {
+                font-size: 2rem;
+            }
+            
+            .blog-card {
+                padding: 1.5rem;
+            }
+            
+            .container {
+                padding: 0 15px;
+            }
+            
+            .logo-text {
+                font-size: 1.5rem;
+            }
+            
+            .logo img {
+                height: 40px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero p {
+                font-size: 0.9rem;
+            }
+            
+            .featured-blog h2 {
+                font-size: 1.5rem;
+            }
+            
+            .blog-card h3 {
+                font-size: 1.3rem;
+            }
+            
+            .logo-text {
+                font-size: 1.3rem;
+            }
+            
+            .logo img {
+                height: 35px;
+            }
+            
+            .read-more-btn {
+                padding: 0.8rem 1.5rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <img src="Glideblinds.png" alt="GlideBlinds Logo">
+                    <span class="logo-text">GlideBlinds</span>
+                </a>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="blog.html" class="active">Blog</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+                <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                    &#9776;
+                </button>
+                <div class="contact-info">
+                                    <p>Email: glideblinds@gmail.com</p>
+                <p>Location: Serving Ottawa & Surrounding Areas</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>GlideBlinds Blog</h1>
+            <p>Expert tips, maintenance guides, and the latest trends in window coverings from Ottawa's premier blinds specialists.</p>
+        </div>
+    </section>
+
+    <!-- Featured Blog -->
+    <section class="blog-section">
+        <div class="container">
+            <div class="featured-blog">
+                <h2>Featured: Ultimate Guide to Choosing the Perfect Blinds</h2>
+                <p>Discover everything you need to know about selecting blinds that match your style, budget, and practical needs. From measuring tips to material selection, we've got you covered.</p>
+                <a href="#featured-guide" class="featured-btn">Read Full Guide</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Grid -->
+    <section class="blog-section">
+        <div class="container">
+            <div class="blog-grid">
+                <!-- Blog Post 1 -->
+                <article class="blog-card" id="featured-guide">
+                    <div class="blog-image">Home</div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span>Jan 15, 2024</span>
+                                                    <span>8 min read</span>
+                        <span>Guide</span>
+                        </div>
+                        <h3 class="blog-title">Ultimate Guide to Choosing the Perfect Blinds for Your Home</h3>
+                        <div class="blog-excerpt">
+                            <p>Choosing the right blinds can transform your space and enhance your home's functionality. This comprehensive guide covers everything from understanding different blind types to measuring your windows correctly and selecting the perfect style for each room.</p>
+                            
+                            <div class="blog-excerpt full">
+                                <h4>Understanding Different Blind Types</h4>
+                                <p><strong>Roller Blinds:</strong> Perfect for modern homes, roller blinds offer clean lines and excellent light control. They're ideal for bedrooms and living rooms where you want to maintain a minimalist aesthetic.</p>
+                                
+                                <p><strong>Roman Shades:</strong> These elegant fabric shades add sophistication to any room. They're perfect for formal dining rooms, master bedrooms, or any space where you want to make a statement.</p>
+                                
+                                <p><strong>Venetian Blinds:</strong> Classic and versatile, Venetian blinds provide excellent light control and privacy. They're perfect for bathrooms, kitchens, and home offices where you need adjustable slats.</p>
+                                
+                                <h4>Measuring Your Windows Correctly</h4>
+                                <p>Accurate measurements are crucial for a perfect fit. Always measure the width at three points (top, middle, bottom) and use the narrowest measurement. For height, measure from the top of the window frame to the desired length.</p>
+                                
+                                <h4>Style Considerations</h4>
+                                <p>Consider your home's architectural style, color scheme, and the room's function when selecting blinds. Light colors make rooms feel larger, while dark colors create intimacy and drama.</p>
+                                
+                                <h4>Professional Installation</h4>
+                                <p>While DIY installation might seem cost-effective, professional installation ensures perfect fit, proper operation, and warranty coverage. Our team at GlideBlinds provides expert installation throughout Ottawa and surrounding areas.</p>
+                            </div>
+                        </div>
+                        <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
+                    </div>
+                </article>
+
+                <!-- Blog Post 2 -->
+                <article class="blog-card">
+                    <div class="blog-image">🧹</div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span>Jan 12, 2024</span>
+                                                    <span>5 min read</span>
+                        <span>Maintenance</span>
+                        </div>
+                        <h3 class="blog-title">Essential Maintenance Tips to Keep Your Blinds Looking New</h3>
+                        <div class="blog-excerpt">
+                            <p>Regular maintenance is key to keeping your blinds in top condition and extending their lifespan. Learn the proper cleaning techniques and maintenance schedules for different types of blinds.</p>
+                            
+                            <div class="blog-excerpt full">
+                                <h4>Daily Maintenance</h4>
+                                <p>Use a microfiber cloth or feather duster to remove daily dust from your blinds. This prevents dust buildup and keeps your blinds looking fresh.</p>
+                                
+                                <h4>Weekly Deep Cleaning</h4>
+                                <p>For fabric blinds, use a gentle vacuum attachment. For vinyl or aluminum blinds, wipe with a damp cloth and mild soap solution.</p>
+                                
+                                <h4>Seasonal Maintenance</h4>
+                                <p>Every 3-4 months, perform a thorough cleaning. Remove blinds from brackets if possible for easier cleaning, or use a specialized blind cleaning tool.</p>
+                                
+                                <h4>Professional Cleaning</h4>
+                                <p>Consider professional cleaning services for delicate fabrics or when blinds are difficult to reach. Our team offers professional cleaning services to keep your investment looking its best.</p>
+                            </div>
+                        </div>
+                        <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
+                    </div>
+                </article>
+
+                <!-- Blog Post 3 -->
+                <article class="blog-card">
+                    <div class="blog-image">Design</div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span>Jan 10, 2024</span>
+                                                    <span>6 min read</span>
+                        <span>Trends</span>
+                        </div>
+                        <h3 class="blog-title">2024's Hottest Trends in Window Coverings</h3>
+                        <div class="blog-excerpt">
+                            <p>Stay ahead of the curve with the latest trends in window coverings. From sustainable materials to smart technology integration, discover what's trending in 2024.</p>
+                            
+                            <div class="blog-excerpt full">
+                                <h4>Sustainable Materials</h4>
+                                <p>Eco-friendly materials like bamboo, organic cotton, and recycled fabrics are gaining popularity. These materials not only look great but also contribute to a healthier environment.</p>
+                                
+                                <h4>Smart Technology</h4>
+                                <p>Motorized blinds with smartphone control, voice activation, and automated scheduling are becoming standard features in modern homes. Perfect for hard-to-reach windows and busy lifestyles.</p>
+                                
+                                <h4>Natural Textures</h4>
+                                <p>Textured fabrics, woven materials, and natural fibers are trending. These add warmth and character to any space while maintaining functionality.</p>
+                                
+                                <h4>Bold Patterns</h4>
+                                <p>Geometric patterns, floral designs, and bold colors are making a comeback. Don't be afraid to make a statement with your window coverings.</p>
+                            </div>
+                        </div>
+                        <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
+                    </div>
+                </article>
+
+                <!-- Blog Post 4 -->
+                <article class="blog-card">
+                    <div class="blog-image">💰</div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span>Jan 8, 2024</span>
+                                                    <span>7 min read</span>
+                        <span>Budget</span>
+                        </div>
+                        <h3 class="blog-title">Budget-Friendly Blinds: Quality Options That Won't Break the Bank</h3>
+                        <div class="blog-excerpt">
+                            <p>Quality window coverings don't have to cost a fortune. Discover budget-friendly options that provide style, functionality, and durability without compromising on quality.</p>
+                            
+                            <div class="blog-excerpt full">
+                                <h4>Affordable Materials</h4>
+                                <p>Vinyl and aluminum blinds offer excellent value for money. They're durable, easy to maintain, and come in various colors and styles to match any decor.</p>
+                                
+                                <h4>Smart Shopping Tips</h4>
+                                <p>Shop during sales, consider standard sizes to avoid custom cutting fees, and bundle multiple windows for better pricing. Many manufacturers offer volume discounts.</p>
+                                
+                                <h4>DIY vs. Professional Installation</h4>
+                                <p>While DIY installation can save money, consider the complexity of your project. Professional installation ensures proper fit and operation, potentially saving money on repairs.</p>
+                                
+                                <h4>Long-term Value</h4>
+                                <p>Invest in quality materials that will last longer. While initial costs may be higher, quality blinds often pay for themselves through durability and energy savings.</p>
+                            </div>
+                        </div>
+                        <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
+                    </div>
+                </article>
+
+                <!-- Blog Post 5 -->
+                <article class="blog-card">
+                    <div class="blog-image">🌱</div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span>📅 Jan 5, 2024</span>
+                                                    <span>4 min read</span>
+                        <span>Eco-Friendly</span>
+                        </div>
+                        <h3 class="blog-title">Eco-Friendly Blinds: Sustainable Choices for Your Home</h3>
+                        <div class="blog-excerpt">
+                            <p>Make environmentally conscious choices for your home with eco-friendly blinds. Learn about sustainable materials, energy efficiency, and how to reduce your carbon footprint.</p>
+                            
+                            <div class="blog-excerpt full">
+                                <h4>Sustainable Materials</h4>
+                                <p>Bamboo, organic cotton, and recycled polyester are excellent eco-friendly options. These materials are renewable, biodegradable, and often more durable than synthetic alternatives.</p>
+                                
+                                <h4>Energy Efficiency</h4>
+                                <p>Properly installed blinds can reduce heating and cooling costs by up to 25%. Cellular shades and thermal linings provide excellent insulation properties.</p>
+                                
+                                <h4>Certifications</h4>
+                                <p>Look for certifications like GREENGUARD, OEKO-TEX, or FSC to ensure your blinds meet environmental and health standards.</p>
+                                
+                                <h4>End-of-Life Disposal</h4>
+                                <p>Choose blinds that can be recycled or composted at the end of their useful life. Many manufacturers now offer take-back programs for old blinds.</p>
+                            </div>
+                        </div>
+                        <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
+                    </div>
+                </article>
+
+                <!-- Blog Post 6 -->
+                <article class="blog-card">
+                    <div class="blog-image">🏢</div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span>📅 Jan 3, 2024</span>
+                                                    <span>6 min read</span>
+                        <span>Commercial</span>
+                        </div>
+                        <h3 class="blog-title">Commercial Blinds: Professional Solutions for Business Spaces</h3>
+                        <div class="blog-excerpt">
+                            <p>Create professional, functional workspaces with commercial-grade blinds. From offices to retail spaces, discover solutions that enhance productivity and brand image.</p>
+                            
+                            <div class="blog-excerpt full">
+                                <h4>Office Environments</h4>
+                                <p>Motorized blinds with light sensors automatically adjust to maintain optimal lighting conditions, improving employee comfort and productivity.</p>
+                                
+                                <h4>Retail Spaces</h4>
+                                <p>Display windows benefit from adjustable blinds that control glare while maintaining visibility. Consider automated systems for consistent operation.</p>
+                                
+                                <h4>Healthcare Facilities</h4>
+                                <p>Medical-grade blinds meet strict hygiene requirements and provide privacy for patients. Easy-to-clean materials are essential in these environments.</p>
+                                
+                                <h4>Restaurant and Hospitality</h4>
+                                <p>Create the perfect ambiance with dimmable blinds and blackout options. Consider outdoor blinds for patios and outdoor dining areas.</p>
+                            </div>
+                        </div>
+                        <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <h3>GlideBlinds</h3>
+                <p>Premium window coverings assembled in Canada</p>
+                <p>Email: glideblinds@gmail.com</p>
+                <p>Location: Serving Ottawa & Surrounding Areas</p>
+                <div class="footer-nav">
+                    <a href="index.html">Home</a> |
+                    <a href="about.html">About</a> |
+                    <a href="services.html">Services</a> |
+                    <a href="blog.html">Blog</a> |
+                    <a href="contact.html">Contact</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 GlideBlinds. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-overlay" onclick="closeMobileMenu()"></div>
+    <div class="mobile-menu">
+        <button class="mobile-menu-close" onclick="closeMobileMenu()">&times;</button>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="blog.html" class="active">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <script>
+        // Mobile Menu Functions
+        function toggleMobileMenu() {
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const mobileOverlay = document.querySelector('.mobile-overlay');
+            
+            mobileMenu.classList.toggle('active');
+            mobileOverlay.classList.toggle('active');
+        }
+        
+        function closeMobileMenu() {
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const mobileOverlay = document.querySelector('.mobile-overlay');
+            
+            mobileMenu.classList.remove('active');
+            mobileOverlay.classList.remove('active');
+        }
+
+    <script>
+        // Read More functionality
+        function toggleReadMore(button) {
+            const blogCard = button.closest('.blog-card');
+            const excerpt = blogCard.querySelector('.blog-excerpt');
+            const fullContent = excerpt.querySelector('.blog-excerpt.full');
+            
+            if (fullContent.style.display === 'block') {
+                // Hide full content
+                fullContent.style.display = 'none';
+                button.textContent = 'Read More';
+                button.classList.remove('read-less');
+                
+                // Smooth scroll to top of card
+                blogCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            } else {
+                // Show full content
+                fullContent.style.display = 'block';
+                button.textContent = 'Read Less';
+                button.classList.add('read-less');
+            }
+        }
+
+
+
+        // Smooth scrolling for featured guide link
+        document.querySelector('a[href="#featured-guide"]').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('featured-guide').scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'start'
+            });
+        });
+    </script>
+</body>
+</html>
